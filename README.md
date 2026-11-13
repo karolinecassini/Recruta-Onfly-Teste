@@ -14,9 +14,9 @@ python3.11 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements-dev.txt
 
-PYTHONPATH=src python -m onfly\_report \\
-  --input data/reservas\_hoteis.csv \\
-  --rates data/taxas\_cambio.csv \\
+PYTHONPATH=src python -m onfly_report \
+  --input data/reservas_hoteis.csv \
+  --rates data/taxas_cambio.csv \
   --output output/report.json
 ```
 
