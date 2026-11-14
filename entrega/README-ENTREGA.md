@@ -1,5 +1,7 @@
 # Onfly — Consolidador de reservas de hotel
 
+Rodei `pytest -q`, conforme solicitado. Como os testes falhavam, usei cada um para localizar a regra quebrada. 
+
 ### 1 - Conversão de câmbio invertida
 src/onfly_report/services/currency_converter.py
 O valor era dividido pela taxa rate_to_brl, mas a taxa diz quantos BRL vale 1 unidade da moeda, então a conta certa é multiplicar.
@@ -24,7 +26,7 @@ Assim, foi realizada ordenaçao do maior para o menor valor e, em caso de empate
 ### 5 - Leitura finalizada em 200 linhas
 src/onfly_report/repositories/csv_reservation_repository.py
 "if len(rows) == 200: break" interrompia a leitura. Como o o data/reservas_hoteis.csv possui 300 reservas,100 ficavam fora do relatório.
-remover as duas linhas do limite.
+As linhas do limite foram removidas. 
 for values in reader:
 rows.append(RawRow(line_number=reader.line_num, values=values))
 return rows
