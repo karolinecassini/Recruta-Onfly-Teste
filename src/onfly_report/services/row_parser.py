@@ -17,7 +17,7 @@ class RowParser:
     """
 
     def parse(self, raw: RawRow) -> Reservation:
-        values = raw.values
+        values = (raw.values)
         try:
             return Reservation(
                 reservation_id=(values.get("reservation_id") or "").strip(),
